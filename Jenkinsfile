@@ -2,12 +2,12 @@ node {
     stage('Prepare') {
         properties([pipelineTriggers([githubPush()])])
         checkout scm
-        sh 'mvn clean'
+        sh 'maven clean'
     }
 
     stage('Build') {
-        sh 'mvn compile'
-        sh 'mvn hpi:hpi'
+        sh 'maven compile'
+        sh 'maven hpi:hpi'
     }
 
     stage('Archive') {
